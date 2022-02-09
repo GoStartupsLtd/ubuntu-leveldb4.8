@@ -1,5 +1,8 @@
 FROM ubuntu:20.04
 
+ENV TZ=Europe/Sofia
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN apt update
 RUN apt upgrade -y
 RUN apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils git cmake libboost-all-dev libgmp3-dev libzmq3-dev
